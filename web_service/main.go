@@ -8,8 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
-		fmt.Fprintf(w, "<body style='background-color:green;'><h1>Hi, you've requested: %s</h1></body>", r.URL)
+		fmt.Fprintf(w, "<body style='background-color:yellow;' ><h1>Hi, you've requested: %s</h1></body>", r.URL)
 	})
 
 	fmt.Println("web service try listen port 3000")
