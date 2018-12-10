@@ -15,3 +15,9 @@ RUN mkdir -p /root/src
 WORKDIR /root/src
 COPY --from=builder /go/bin/job_out /usr/bin/
 CMD ["job_out"]
+
+LABEL TencentHubComponent='{\
+  "description": "简易输出",\
+  "input": [ {"name": "OUTPUTS", "desc": "可选, 需要输出的内容, 多个用换行分隔, kv 用=分隔"} ],\
+  "output": []\
+}'
