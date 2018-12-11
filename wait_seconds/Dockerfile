@@ -18,6 +18,9 @@ CMD ["wait_seconds"]
 
 LABEL TencentHubComponent='{\
   "description": "简易暂停",\
-  "input": [ {"name": "SECOND", "desc": "可选, 暂停秒数, 默认60秒"} ],\
+  "input": [ \
+    {"name": "SECOND", "desc": "可选, 暂停秒数, 默认10秒"}, \
+    {"name": "EXIT_CODE", "desc": "可选, 退出码, 默认0秒"} \
+  ],\
   "output": []\
 }'

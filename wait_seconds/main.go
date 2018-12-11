@@ -9,19 +9,30 @@ import (
 )
 
 func main() {
-	s := strings.TrimSpace(os.Getenv("SECOND"))
-	if s == "" {
-		s = "60"
+	sec := strings.TrimSpace(os.Getenv("SECOND"))
+	if sec == "" {
+		sec = "10"
 	}
 
-	t, err := strconv.ParseInt(s, 10, 64)
+	s, err := strconv.ParseInt(sec, 10, 64)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	fmt.Printf("start sleep %d second\n", t)
-	time.Sleep(time.Duration(t) * time.Second)
-	fmt.Printf("finish sleep %s second\n", s)
+	fmt.Printf("start sleep %d second\n", s)
+	time.Sleep(time.Duration(s) * time.Second)
+	fmt.Printf("finish sleep %d second\n", s)
 
-	os.Exit(0)
+	code := strings.TrimSpace(os.Getenv("EXIT_CODE"))
+	if code == "" {
+		code = "0"
+	}
+	c, err := strconv.Atoi(code)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("exit code is  %d\n", c)
+	os.Exit(c)
 }
