@@ -2,7 +2,7 @@ FROM alpine
 
 MAINTAINER zhongfox (https://github.com/zhongfox)
 
-RUN apk add --no-cache --update --verbose grep bash nmap-ncat && \
+RUN apk add --no-cache --update --verbose grep bash nmap-ncat && apk add busybox-extras && apk add tcpdump \
   rm -rf /var/cache/apk/* /tmp/* /sbin/halt /sbin/poweroff /sbin/reboot
 
 COPY server.sh /

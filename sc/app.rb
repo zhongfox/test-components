@@ -5,11 +5,12 @@ $stdout.sync = true
 
 service = ENV['SERVICE']
 destinations = ENV['DESTINATIONS']
+pod_ip = ENV['MY_POD_IP'] ||  '0.0.0.0'
 
 def start_service service
-  puts "starting service #{service}"
+  puts "starting service #{service}, bind to #{pod_ip}"
 
-  set :bind, '0.0.0.0'
+  set :bind, pod_ip
   set :port, 7000
   get "/#{service}" do
     content_type :text
